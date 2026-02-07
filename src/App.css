@@ -122,3 +122,187 @@ body {
     transform: translateY(0);
   }
 }
+/* ===== ARENA LAYOUT ===== */
+
+.app-layout {
+  height: 100vh;
+  background: radial-gradient(circle at center, #1a1a1a, #0a0a0a);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== SCOREBOARD HEADER ===== */
+
+.header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  background: #111;
+  border-bottom: 2px solid #ff8c00;
+  letter-spacing: 1px;
+}
+/* ===== ARENA GRID LAYOUT ===== */
+
+.arena {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Center court holds the chat */
+.center-court {
+  display: flex;
+  justify-content: center;
+}
+
+/* Side panels */
+.side-panel {
+  background: rgba(0, 0, 0, 0.55);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.side-panel h3 {
+  margin-bottom: 8px;
+  color: #ff8c00;
+  text-align: center;
+}
+/* ===== FIX CHAT INSIDE ARENA ===== */
+
+.arena .chat-container {
+  max-width: 100%;
+  margin: 0;
+}
+side-panel {
+  min-height: 400px;
+}
+/* ===== PANEL VISUAL STATES ===== */
+
+.panel-dim {
+  opacity: 0.45;
+  border-color: rgba(255, 140, 0, 0.15);
+  transform: translateY(6px);
+}
+
+.panel-active {
+  opacity: 1;
+  border-color: rgba(255, 140, 0, 0.8);
+  box-shadow: 0 0 18px rgba(255, 140, 0, 0.15);
+  transform: translateY(0);
+}
+
+/* Smooth transitions */
+.side-panel {
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+/* ===== DIRECTIONAL MOTION ===== */
+
+.left-panel.panel-dim {
+  transform: translateX(-12px) translateY(6px);
+}
+
+.right-panel.panel-dim {
+  transform: translateX(12px) translateY(6px);
+}
+
+.left-panel.panel-active,
+.right-panel.panel-active {
+  transform: translateX(0) translateY(0);
+}
+/* ===== ABOUT PANEL IDENTITY ===== */
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #444, #222);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  margin: 0 auto 12px auto;
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+.identity {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.identity .name {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.identity .role {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-top: 4px;
+}
+
+/* Text inside panels */
+.panel-text {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.panel-text.muted {
+  opacity: 0.6;
+}
+/* ===== ANIMATED IDENTITY EMOJI ===== */
+
+.identity-emoji {
+  font-size: 48px;
+  text-align: center;
+  margin: 0 auto 12px auto;
+  transition: transform 0.4s ease;
+}
+
+.emoji-active {
+  animation: emojiPulse 1.4s ease-in-out infinite;
+}
+
+/* Subtle, premium motion */
+@keyframes emojiPulse {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.08) rotate(2deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+.panel-text ul {
+  margin-top: 8px;
+  padding-left: 18px;
+}
+
+.panel-text li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+/* ===== MAIN APP FADE IN ===== */
+
+.main-app {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.main-app.main-visible {
+  opacity: 1;
+}
