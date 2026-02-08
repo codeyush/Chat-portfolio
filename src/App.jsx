@@ -81,13 +81,11 @@ function App() {
 
       {/* ===== MAIN APP (always mounted) ===== */}
       <div className={`main-app ${mainVisible ? "main-visible" : ""}`}>
-        <div className="app-layout">
+       <div className="app-layout app-bg">
           <Header />
 
-          <div
-  className="arena"
-  style={{ backgroundImage: `url(${arenaBg})` }}
->
+       <div className="arena">
+
             <AboutPanel
               activeTopic={activeTopic}
               isActive={activeTopic === "experience" || activeTopic === "education"}

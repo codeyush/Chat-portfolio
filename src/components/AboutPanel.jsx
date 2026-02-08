@@ -11,11 +11,10 @@ function AboutPanel({ activeTopic, isActive }) {
 </div>
 
 
-      {/* Identity */}
-      <div className="identity">
-        <div className="name">Ayush Sehgal</div>
-        <div className="role">Software Engineer · BEL</div>
-      </div>
+      <div className="panel-text muted" style={{ textAlign: "center" }}>
+      <h3> About </h3>
+</div>
+
 
       {/* Content */}
      {activeTopic === "experience" && (
@@ -37,11 +36,7 @@ function AboutPanel({ activeTopic, isActive }) {
         </p>
       )}
 
-      {!activeTopic && (
-        <p className="panel-text muted">
-          Ask about experience or education to learn more.
-        </p>
-      )}
+      
     </div>
   )
 }

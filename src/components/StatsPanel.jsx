@@ -6,6 +6,10 @@ function StatsPanel({ activeTopic, isActive }) {
   }`}
 >
 
+     {/* Animated Identity Emoji */}
+<div className={`identity-emoji ${isActive ? "emoji-active" : ""}`}>
+  🏀
+</div>
 
       <h3>Projects / Stats</h3>
 
